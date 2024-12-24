@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = {
+    "Metode": ["FIFO", "Manual (tanpa prioritas)", "Sistem Prioritas"],
+    "Makespan (menit)": [450, 420, 400],
+    "Kepatuhan Deadline (%)": [70, 60, 90],
+    "Efisiensi Proses (%)": [80, 75, 90],
+}
+
+df = pd.DataFrame(data)
+
+plt.figure(figsize=(10, 6))
+plt.plot(df["Metode"], df["Makespan (menit)"], marker='o', label="Makespan (menit)")
+plt.plot(df["Metode"], df["Kepatuhan Deadline (%)"], marker='o', label="Kepatuhan Deadline (%)")
+plt.plot(df["Metode"], df["Efisiensi Proses (%)"], marker='o', label="Efisiensi Proses (%)")
+
+plt.title("Perbandingan Kinerja Sistem Prioritas Pengantaran Laundry", fontsize=14)
+plt.xlabel("Metode", fontsize=12)
+plt.ylabel("Nilai", fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.tight_layout()
+
+plt.show()
+
+print(df)
